@@ -1,0 +1,1008 @@
+Interface:
+    LoginPage:
+    SignupPage:
+    HomePage:
+    VitMain:
+    VitFC:
+    VitPoona:
+    VitNesCafe:
+    VitKiosk:
+    VitCoffee:
+    RecieptPage:
+    
+        
+        
+
+<LoginPage>:
+    name: 'login'
+    email : email
+    pswd : pswd        
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        size: root.width, root.height  
+        Button:
+            text: 'New User'
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            pos_hint: {"x":0.2, "top":0.2}
+            size_hint: 0.10,0.05
+            on_press: 
+                root.txt_animate(self)
+                app.root.current = 'signup'
+        Button:
+            text: 'Cashier'
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.10,0.05
+            pos_hint: {"x":0.45, "top":0.2}
+        Button:
+            text: 'Canteen'
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.10,0.05
+            pos_hint: {"x":0.7, "top":0.2}
+        TextInput:
+            id: email
+            multiline: False 
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.3, "top":0.5}
+        TextInput:
+            id: pswd
+            multiline: False 
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.3, "top":0.45}
+            password: True
+        Label:
+            text: "Password"
+            color: 0,0,0,1
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.05, "top":0.45}
+        Label:
+            text: "Email"
+            color: 0,0,0,1
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.063, "top":0.5}
+        Image:
+            source: 'icontext.png'
+            size_hint: 1,1
+            pos_hint: {"x":0, "top":1.4}
+        Label:
+            text: "LogIn"
+            color: 0,0,0,1
+            pos_hint: {"x":0, "top":1.2}
+            font_size: 50
+        Button:
+            text: 'Submit'
+            background_color: 0,0,0,1
+            size_hint: 0.10,0.05
+            pos_hint: {"x":0.46, "top":0.35}
+            on_press: 
+                root.but_animate(self)
+            on_release:
+                root.verify() 
+                root.manager.transition.direction = "left"               
+        
+<SignupPage>:
+    name: "signup"
+    email : email
+    pswd : pswd 
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos  
+    FloatLayout:
+        size: root.width, root.height
+        Label:
+            text: "New User Signup"
+            color: 0,0,0,1
+            pos_hint: {"x":0, "top":1.2}
+            font_size: 50
+        TextInput:
+            id: email
+            multiline: False 
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.3, "top":0.45}
+        TextInput:
+            id: pswd
+            multiline: False 
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.3, "top":0.4}
+        Label:
+            text: "Email:"
+            color: 0,0,0,1
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.07, "top":0.45}
+        Label:
+            text: "Password:"
+            color: 0,0,0,1
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.055, "top":0.4}
+        Image:
+            source: 'icontext.png'
+            size_hint: 1,1
+            pos_hint: {"x":0, "top":1.4} 
+        Button:
+            text: "Create Account"
+            size_hint: 0.15, 0.05
+            pos_hint: {"x":0.3, "top":0.3}
+            background_color: 0,0,0,1
+            on_press:
+                root.sign()
+                root.but_animate(self)
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Login Page"
+            size_hint: 0.15, 0.05
+            pos_hint: {"x":0.55, "top":0.3}
+            background_color: 0,0,0,1
+            on_press:
+                root.but_animate(self)
+       
+<HomePage>:
+    name: "home"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: root.width, root.height
+        Button:
+            text: "VIT Main Canteen" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25, "top":0.58}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitmain'
+                root.manager.transition.direction = "left"
+        Button:
+            text: "VIT Poona Bakery" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25, "top":0.51}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitpoona'
+                root.manager.transition.direction = "left"
+        Button:
+            text: "VIT Fruit Canteen" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25, "top":0.44}  
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitfc'
+                root.manager.transition.direction = "left"
+        Button:
+            text: "VIT NesCafe" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25, "top":0.37}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitnescafe'
+                root.manager.transition.direction = "left"
+        Button:
+            text: "VIT Kiosk" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 1,0.05
+            pos_hint: {"x":0, "top":0.3}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitkiosk'
+                root.manager.transition.direction = "left"
+        Button:
+            text: "VIT Coffee" 
+            color: 0,0,0,1
+            background_color: 0,0,0,0
+            size_hint: 1,0.05
+            pos_hint: {"x":0, "top":0.23}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'vitcoffee'
+                root.manager.transition.direction = "left"
+        Image:
+            source: 'icontext.png'
+            size_hint: 1,1
+            pos_hint: {"x":0, "top":1.4} 
+        Button:
+            background_color: 0,0,0,0
+            pos_hint: {'x':0.45, 'top':0.75}
+            size_hint: 0.1,0.1  
+            on_press:
+                root.but_animate(self)         
+            Image:
+                source: 'profileicon.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+<VitMain>:
+    name: "vitmain"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Main Canteen Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right"
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left"
+        
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)            
+<VitFC>:
+    name: "vitfc"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Fruit Canteen Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3} 
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left"
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right" 
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+               
+<VitPoona>:
+    name: "vitpoona"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Poona Bakery Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right" 
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left"
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+              
+<VitNesCafe>:
+    name: "vitnescafe"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT NesCafe Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3} 
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right"
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left" 
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+
+<VitKiosk>:
+    name: "vitkiosk"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Kiosk Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right" 
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left"
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+               
+<VitCoffee>:
+    name: "vitcoffee"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Coffee Menu"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}  
+        Button:
+            text:"Home Page"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.7, 'top':0.2}
+            on_press:
+                root.but_animate(self)                  
+            on_release: 
+                app.root.current = 'home'
+                root.manager.transition.direction = "right" 
+        Label:
+            text: "Clears your kart"
+            font_size: 15
+            color: 1,0,0,1
+            pos_hint: {'x':0.265, 'top':0.64}
+        Button:
+            text:"Proceed to pay"
+            background_color: 0,0,0,1
+            size_hint: 0.13,0.05
+            pos_hint:{'x':0.2, 'top':0.2}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                app.root.current = 'reciept'
+                root.manager.transition.direction = "left"
+        ScrollView:
+            do_scroll_x: False 
+            do_scroll_y: True
+            size_hint: (0.5,0.5)
+            pos_hint: {'x':0.265, 'top':0.73}
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None 
+                height: 1000
+                Button:
+                    price: 1
+                    text: 'Item 1'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)   
+                Button:
+                    price: 2
+                    text: 'Item 2'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 3
+                    text: 'Item 3'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 4
+                    text: 'Item 4'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 5
+                    text: 'Item 5'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 6
+                    text: 'Item 6'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 7
+                    text: 'Item 7'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 8
+                    text: 'Item 8'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 9
+                    text: 'Item 9'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 10
+                    text: 'Item 10'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 11
+                    text: 'Item 11'
+                    size_hint: 1, 0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+                Button:
+                    price: 12
+                    text: 'Item 12'
+                    size_hint: 1,0.1
+                    on_press: 
+                        root.GetOrder(self.text, self.price)
+ 
+
+
+<RecieptPage>:
+    name: 'reciept'
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: root.tokenNumber
+            font_size: 100
+            pos_hint: {'x':0, 'top':0.95}
+        Image:
+            source: 'tempqr.png'
+            pos_hint: {'x':0, 'top':1.2}
+        Button:
+            text: "Pay"
+            background_color: 0,0,0,1
+            pos_hint: {'x':0.45, 'top':0.33}
+            size_hint: 0.1,0.05
+        Label:
+            text: 'Token Number'
+            font_size: 30
+            pos_hint: {'x':0, 'top':0.88}
+            
+
+
+                
+
+    
+        
+
+    
+    
