@@ -32,15 +32,15 @@ class Invalid(Widget):
         invalid_notif()
 
 class LoginPage(Screen):
-    email = ObjectProperty(None)
+    tokenName = ObjectProperty(None)
     pswd = ObjectProperty(None) 
     def verify(self):
-        email = self.email.text 
+        tokenName = self.tokenName.text 
         pswd = self.pswd.text
         with open('database.csv', mode="r") as userInfo:
             read = csv.reader(userInfo, delimiter=",")
             for row in read:
-                if row == [email,pswd]:
+                if row == [tokenName,pswd]:
                     self.manager.current = 'home'
                     break
                 else:
@@ -253,6 +253,9 @@ class VitCoffee(Screen):
 class RecieptPage(Screen):
     tokenNumber = ObjectProperty
     tokenNumber = str(random.randint(0,1000))
+    # tokenId = ObjectProperty
+    # tokenId = LoginPage.verify.tokenName
+
     
 
 

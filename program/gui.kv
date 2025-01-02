@@ -15,7 +15,7 @@ Interface:
 
 <LoginPage>:
     name: 'login'
-    email : email
+    tokenName : tokenName
     pswd : pswd        
     canvas.before:
         Color: 
@@ -47,7 +47,7 @@ Interface:
             size_hint: 0.10,0.05
             pos_hint: {"x":0.7, "top":0.2}
         TextInput:
-            id: email
+            id: tokenName
             multiline: False 
             size_hint: 0.4,0.04
             pos_hint: {"x":0.3, "top":0.5}
@@ -63,7 +63,7 @@ Interface:
             size_hint: 0.4,0.04
             pos_hint: {"x":0.05, "top":0.45}
         Label:
-            text: "Email"
+            text: "Name"
             color: 0,0,0,1
             size_hint: 0.4,0.04
             pos_hint: {"x":0.063, "top":0.5}
@@ -144,6 +144,8 @@ Interface:
             background_color: 0,0,0,1
             on_press:
                 root.but_animate(self)
+                app.root.current = 'login'
+                root.manager.transition.direction = "right"
        
 <HomePage>:
     name: "home"
@@ -996,6 +998,10 @@ Interface:
             text: 'Token Number'
             font_size: 30
             pos_hint: {'x':0, 'top':0.88}
+        # Label:
+        #     text: root.tokenId
+        #     font_size: 100
+        #     pos_hint: {'x':0, 'top':0.95}
             
 
 
