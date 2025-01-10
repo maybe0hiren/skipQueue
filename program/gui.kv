@@ -15,7 +15,7 @@ Interface:
 
 <LoginPage>:
     name: 'login'
-    tokenName : tokenName
+    tokenId : tokenId
     pswd : pswd        
     canvas.before:
         Color: 
@@ -47,7 +47,7 @@ Interface:
             size_hint: 0.10,0.05
             pos_hint: {"x":0.7, "top":0.2}
         TextInput:
-            id: tokenName
+            id: tokenId
             multiline: False 
             size_hint: 0.4,0.04
             pos_hint: {"x":0.3, "top":0.5}
@@ -84,7 +84,7 @@ Interface:
             on_press: 
                 root.but_animate(self)
             on_release:
-                root.verify() 
+                root.verify()
                 root.manager.transition.direction = "left"               
         
 <SignupPage>:
@@ -115,7 +115,7 @@ Interface:
             size_hint: 0.4,0.04
             pos_hint: {"x":0.3, "top":0.4}
         Label:
-            text: "Email:"
+            text: "Name:"
             color: 0,0,0,1
             size_hint: 0.4,0.04
             pos_hint: {"x":0.07, "top":0.45}
@@ -998,10 +998,11 @@ Interface:
             text: 'Token Number'
             font_size: 30
             pos_hint: {'x':0, 'top':0.88}
-        # Label:
-        #     text: root.tokenId
-        #     font_size: 100
-        #     pos_hint: {'x':0, 'top':0.95}
+        Label:
+            text: root.tokenName
+            font_size: 40
+            pos_hint: {'x':0, 'top':1.035}
+
             
 
 

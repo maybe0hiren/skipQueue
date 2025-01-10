@@ -11,6 +11,7 @@ import pandas as pd
 import random
 import csv
 
+
 pay = []
 
 class Interface(ScreenManager):
@@ -31,16 +32,18 @@ class Invalid(Widget):
     def btn(self):
         invalid_notif()
 
+
+
 class LoginPage(Screen):
-    tokenName = ObjectProperty(None)
+    tokenId = ObjectProperty(None)
     pswd = ObjectProperty(None) 
     def verify(self):
-        tokenName = self.tokenName.text 
+        tokenId = self.tokenId.text
         pswd = self.pswd.text
         with open('database.csv', mode="r") as userInfo:
             read = csv.reader(userInfo, delimiter=",")
             for row in read:
-                if row == [tokenName,pswd]:
+                if row == [tokenId,pswd]:
                     self.manager.current = 'home'
                     break
                 else:
@@ -253,13 +256,10 @@ class VitCoffee(Screen):
 class RecieptPage(Screen):
     tokenNumber = ObjectProperty
     tokenNumber = str(random.randint(0,1000))
-    # tokenId = ObjectProperty
-    # tokenId = LoginPage.verify.tokenName
-
-    
-
-
-
+    with open('database.csv',mode='r') as userInfo:
+        userName = csv.reader(userInfo)
+        for row in userName:
+            tokenName = row[0]
 kv = Builder.load_file('gui.kv')
 class SkipQueueApp(App):
     def build(self):
