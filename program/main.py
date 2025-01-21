@@ -10,9 +10,11 @@ from kivy.uix.floatlayout import FloatLayout
 import pandas as pd
 import random
 import csv
+import requests
 
 
 pay = []
+orderList = []
 
 class Interface(ScreenManager):
     pass
@@ -31,7 +33,6 @@ def invalid_notif():
 class Invalid(Widget):
     def btn(self):
         invalid_notif()
-
 
 
 class LoginPage(Screen):
@@ -130,6 +131,7 @@ class VitMain(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order)
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -141,7 +143,13 @@ class VitMain(Screen):
             size_hint = (0.13,0.05),
             duration = 0.1
         )
-        animate.start(widget)   
+        animate.start(widget) 
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'Order':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload)
+
 class VitFC(Screen):
     order = ObjectProperty
     price = NumericProperty

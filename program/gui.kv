@@ -277,8 +277,8 @@ Interface:
                 root.but_animate(self)
             on_release: 
                 app.root.current = 'reciept'
-                root.manager.transition.direction = "left"
-        
+                root.manager.transition.direction = "left"  
+                root.orderDatabase()  
         ScrollView:
             do_scroll_x: False 
             do_scroll_y: True
@@ -293,7 +293,7 @@ Interface:
                     text: 'Item 1'
                     size_hint: 1, 0.1
                     on_press: 
-                        root.GetOrder(self.text, self.price)   
+                        root.GetOrder(self.text, self.price)
                 Button:
                     price: 2
                     text: 'Item 2'
@@ -359,7 +359,7 @@ Interface:
                     text: 'Item 12'
                     size_hint: 1,0.1
                     on_press: 
-                        root.GetOrder(self.text, self.price)            
+                        root.GetOrder(self.text, self.price)           
 <VitFC>:
     name: "vitfc"
     canvas.before:
@@ -1002,14 +1002,3 @@ Interface:
             text: root.tokenName
             font_size: 40
             pos_hint: {'x':0, 'top':1.035}
-
-            
-
-
-                
-
-    
-        
-
-    
-    
