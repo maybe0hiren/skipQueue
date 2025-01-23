@@ -97,8 +97,7 @@ class SignupPage(Screen):
             write = csv.writer(userInfo, delimiter=",")
             email = self.email.text
             pswd = self.pswd.text
-            write.writerow([email, pswd])
-            
+            write.writerow([email, pswd])        
 class HomePage(Screen):
     def but_animate(self, widget):
         animate = Animation(
@@ -120,7 +119,7 @@ class HomePage(Screen):
             duration = 0.1
         )
         animate.start(widget) 
-
+        
 class VitMain(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -131,7 +130,7 @@ class VitMain(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
-        orderList.append(order)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -146,10 +145,9 @@ class VitMain(Screen):
         animate.start(widget) 
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'Order':orderList}
+        DatabaseOrderList = {'MainOrder':orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)
-
 class VitFC(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -160,6 +158,7 @@ class VitFC(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -171,7 +170,12 @@ class VitFC(Screen):
             size_hint = (0.13,0.05),
             duration = 0.1
         )
-        animate.start(widget)    
+        animate.start(widget) 
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'FCOrder':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload)   
 class VitPoona(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -182,6 +186,7 @@ class VitPoona(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -193,7 +198,12 @@ class VitPoona(Screen):
             size_hint = (0.13,0.05),
             duration = 0.1
         )
-        animate.start(widget)    
+        animate.start(widget)  
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'PoonaOrder':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload)  
 class VitNesCafe(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -204,6 +214,7 @@ class VitNesCafe(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -216,6 +227,11 @@ class VitNesCafe(Screen):
             duration = 0.1
         )
         animate.start(widget)
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'NesCafeOrder':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload)
 class VitKiosk(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -226,6 +242,7 @@ class VitKiosk(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -237,7 +254,12 @@ class VitKiosk(Screen):
             size_hint = (0.13,0.05),
             duration = 0.1
         )
-        animate.start(widget)    
+        animate.start(widget) 
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'KioskOrder':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload)   
 class VitCoffee(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -248,6 +270,7 @@ class VitCoffee(Screen):
         for i in range(len(pay)):
             kart += pay[i]
         print(kart)
+        orderList.append(order + str(" - ") + str(RecieptPage.tokenNumber))
     def but_animate(self, widget):
         for i in range(len(pay)):
             pay.remove(pay[0])
@@ -260,7 +283,12 @@ class VitCoffee(Screen):
             duration = 0.1
         )
         animate.start(widget)    
-        
+    def orderDatabase(self):
+        firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
+        DatabaseOrderList = {'CoffeeOrder':orderList}
+        upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
+        print(upload) 
+
 class RecieptPage(Screen):
     tokenNumber = ObjectProperty
     tokenNumber = str(random.randint(0,1000))

@@ -390,6 +390,7 @@ Interface:
             on_release: 
                 app.root.current = 'reciept'
                 root.manager.transition.direction = "left"
+                root.orderDatabase()  
         Button:
             text:"Home Page"
             background_color: 0,0,0,1
@@ -506,7 +507,7 @@ Interface:
                 root.but_animate(self)
             on_release: 
                 app.root.current = 'home'
-                root.manager.transition.direction = "right" 
+                root.manager.transition.direction = "right"  
         Label:
             text: "Clears your kart"
             font_size: 15
@@ -522,6 +523,7 @@ Interface:
             on_release: 
                 app.root.current = 'reciept'
                 root.manager.transition.direction = "left"
+                root.orderDatabase() 
         ScrollView:
             do_scroll_x: False 
             do_scroll_y: True
@@ -639,6 +641,7 @@ Interface:
             on_release: 
                 app.root.current = 'reciept'
                 root.manager.transition.direction = "left" 
+                root.orderDatabase()  
         Label:
             text: "Clears your kart"
             font_size: 15
@@ -761,6 +764,7 @@ Interface:
             on_release: 
                 app.root.current = 'reciept'
                 root.manager.transition.direction = "left"
+                root.orderDatabase()  
         Label:
             text: "Clears your kart"
             font_size: 15
@@ -872,7 +876,7 @@ Interface:
                 root.but_animate(self)                  
             on_release: 
                 app.root.current = 'home'
-                root.manager.transition.direction = "right" 
+                root.manager.transition.direction = "right"   
         Label:
             text: "Clears your kart"
             font_size: 15
@@ -888,6 +892,7 @@ Interface:
             on_release: 
                 app.root.current = 'reciept'
                 root.manager.transition.direction = "left"
+                root.orderDatabase()
         ScrollView:
             do_scroll_x: False 
             do_scroll_y: True
@@ -1002,3 +1007,14 @@ Interface:
             text: root.tokenName
             font_size: 40
             pos_hint: {'x':0, 'top':1.035}
+
+            
+
+
+                
+
+    
+        
+
+    
+    
