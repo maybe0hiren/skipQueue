@@ -289,6 +289,50 @@ class VitCoffee(Screen):
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload) 
 
+class CanteenCode(Screen):
+    def but_animate(self, widget):
+        for i in range(len(pay)):
+            pay.remove(pay[0])
+        animate = Animation(
+            size_hint = (0.12,0.045),
+            duration = 0.1
+        )
+        animate += Animation(
+            size_hint = (0.13,0.05),
+            duration = 0.1
+        )
+        animate.start(widget)
+    def checkCode(self):
+        code = self.ids.canteenCode.text
+        if code == "key1":
+            page = 'canteenmanagermain'
+        elif code == "key2":
+            page = 'canteenmanagerfc'
+        elif code == 'key3':
+            page = 'canteenmanagerkiosk'
+        elif code == 'key4':
+            page = 'canteenmanagernescafe'
+        elif code == 'key5':
+            page = 'canteenmanagerpoona'
+        elif code == 'key6':
+            page = 'canteenmanagercoffee'
+        else:
+            invalid_notif()
+            page = 'canteencode'
+        return page
+class CanteenManagerMain(Screen):
+    pass
+class CanteenManagerFC(Screen):
+    pass
+class CanteenManagerNescafe(Screen):
+    pass
+class CanteenManagerCoffee(Screen):
+    pass
+class CanteenManagerPoona(Screen):
+    pass
+class CanteenManagerKiosk(Screen):
+    pass
+
 class RecieptPage(Screen):
     tokenNumber = ObjectProperty
     tokenNumber = str(random.randint(0,1000))

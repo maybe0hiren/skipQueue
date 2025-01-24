@@ -9,6 +9,13 @@ Interface:
     VitKiosk:
     VitCoffee:
     RecieptPage:
+    CanteenCode:
+    CanteenManagerMain:
+    CanteenManagerFC:
+    CanteenManagerNescafe:
+    CanteenManagerCoffee:
+    CanteenManagerPoona:
+    CanteenManagerKiosk:
     
         
         
@@ -46,6 +53,11 @@ Interface:
             background_color: 0,0,0,0
             size_hint: 0.10,0.05
             pos_hint: {"x":0.7, "top":0.2}
+            on_press:
+                root.txt_animate(self)
+            on_release:
+                app.root.current = 'canteencode'
+                root.manager.transition.direction = 'right'
         TextInput:
             id: tokenId
             multiline: False 
@@ -1007,6 +1019,131 @@ Interface:
             text: root.tokenName
             font_size: 40
             pos_hint: {'x':0, 'top':1.035}
+
+<CanteenCode>:
+    name: 'canteencode'
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "Enter Canteen Code"
+            color: 0,0,0,1
+            font_size: 30
+            pos_hint: {'x':0, 'top':1.1}
+        TextInput:
+            id: canteenCode
+            multiline: False 
+            size_hint: 0.4,0.04
+            pos_hint: {"x":0.31, "top":0.5}
+        Button:
+            text: 'Submit'
+            background_color: (0,0,0,1)
+            size_hint: 0.13,0.05
+            pos_hint: {'x':0.45,'top':0.45}
+            on_press:
+                root.but_animate(self)
+            on_release: 
+                page = root.checkCode()
+                app.root.current = page
+                root.manager.transition.direction = 'left'
+<CanteenManagerMain>:
+    name: "canteenmanagermain"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Main Canteen"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+<CanteenManagerFC>:
+    name: "canteenmanagerfc"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Fruit Canteen"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+<CanteenManagerKiosk>:
+    name: "canteenmanagerkiosk"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Kiosk"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+<CanteenManagerNescafe>:
+    name: "canteenmanagernescafe"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT NesCafe"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}   
+<CanteenManagerPoona>:
+    name: "canteenmanagerpoona"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT New Poona Bakery"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}
+<CanteenManagerCoffee>:
+    name: "canteenmanagercoffee"
+    canvas.before:
+        Color: 
+            rgba: rgba('#c1d3ffff')
+        Rectangle: 
+            size: self.size
+            pos: self.pos 
+    FloatLayout:
+        size: self.width, self.height
+        Label:
+            text: "VIT Coffee"
+            font_size: 50
+            color: 0,0,0,1
+            pos_hint: {'x':0, 'top':1.3}         
+            
+            
+
 
             
 
