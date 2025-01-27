@@ -11,6 +11,8 @@ import pandas as pd
 import random
 import csv
 import requests
+from firebase import firebase
+
 
 
 pay = []
@@ -320,18 +322,74 @@ class CanteenCode(Screen):
             invalid_notif()
             page = 'canteencode'
         return page
+
 class CanteenManagerMain(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/MainOrder', None)
+        prepOrder = prepOrderList[CanteenManagerMain.n]
+        print(len(prepOrderList))
+        if CanteenManagerMain.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerMain.n = CanteenManagerMain.n + 1          
+        else:
+            print("No more orders")
 class CanteenManagerFC(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/FCOrder', None)
+        prepOrder = prepOrderList[CanteenManagerFC.n]
+        if CanteenManagerFC.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerFC.n = CanteenManagerFC.n + 1
+        else:
+            print("No more orders")
 class CanteenManagerNescafe(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/NesCafeOrder', None)
+        prepOrder = prepOrderList[CanteenManagerNescafe.n]
+        if CanteenManagerNescafe.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerNescafe.n = CanteenManagerNescafe.n + 1
+        else:
+            print("No more orders")
 class CanteenManagerCoffee(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/CoffeeOrder', None)
+        prepOrder = prepOrderList[CanteenManagerCoffee.n]
+        if CanteenManagerCoffee.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerCoffee.n = CanteenManagerCoffee.n + 1
+        else:
+            print("No more orders")
 class CanteenManagerPoona(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/CoffeeOrder', None)
+        prepOrder = prepOrderList[CanteenManagerPoona.n]
+        if CanteenManagerPoona.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerPoona.n = CanteenManagerPoona.n + 1
+        else:
+            print("No more orders")
 class CanteenManagerKiosk(Screen):
-    pass
+    n = 0
+    def order(self):
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/KioskOrder', None)
+        prepOrder = prepOrderList[CanteenManagerKiosk.n]
+        if CanteenManagerKiosk.n < len(prepOrderList):
+            print(prepOrder)
+            CanteenManagerKiosk.n = CanteenManagerKiosk.n + 1
+        else:
+            print("No more orders")
 
 class RecieptPage(Screen):
     tokenNumber = ObjectProperty
