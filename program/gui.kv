@@ -1073,6 +1073,11 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Button:
+            text: root.buttonOrder
+            background_color: (0,0,0,1)
+            size_hint: 0.13,0.05
+            pos_hint: {'x':0.45,'top':0.35}
 <CanteenManagerFC>:
     name: "canteenmanagerfc"
     canvas.before:
