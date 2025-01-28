@@ -147,9 +147,12 @@ class VitMain(Screen):
         animate.start(widget) 
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'MainOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/MainOrder', None)
+        DatabaseOrderList = {'MainOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)
+        
 class VitFC(Screen):
     order = ObjectProperty
     price = NumericProperty
@@ -175,7 +178,9 @@ class VitFC(Screen):
         animate.start(widget) 
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'FCOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/FCOrder', None)
+        DatabaseOrderList = {'FCOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)   
 class VitPoona(Screen):
@@ -203,7 +208,9 @@ class VitPoona(Screen):
         animate.start(widget)  
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'PoonaOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/PoonaOrder', None)
+        DatabaseOrderList = {'PoonaOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)  
 class VitNesCafe(Screen):
@@ -231,7 +238,9 @@ class VitNesCafe(Screen):
         animate.start(widget)
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'NesCafeOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/NesCafeOrder', None)
+        DatabaseOrderList = {'NesCafeOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)
 class VitKiosk(Screen):
@@ -259,7 +268,9 @@ class VitKiosk(Screen):
         animate.start(widget) 
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'KioskOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/KioskOrder', None)
+        DatabaseOrderList = {'KioskOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload)   
 class VitCoffee(Screen):
@@ -287,7 +298,9 @@ class VitCoffee(Screen):
         animate.start(widget)    
     def orderDatabase(self):
         firebaseUrl = "https://skipqueue-5f654-default-rtdb.firebaseio.com/.json"
-        DatabaseOrderList = {'CoffeeOrder':orderList}
+        url = firebase.FirebaseApplication("https://skipqueue-5f654-default-rtdb.firebaseio.com", None)
+        prepOrderList = url.get('/CoffeeOrder', None)
+        DatabaseOrderList = {'CoffeeOrder':prepOrderList + orderList}
         upload = requests.patch(url=firebaseUrl, json=DatabaseOrderList)
         print(upload) 
 
