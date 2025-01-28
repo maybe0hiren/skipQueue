@@ -1064,9 +1064,17 @@ Interface:
             text: "Get Orders"
             background_color: (0,0,0,1)
             size_hint: 0.13,0.05
-            pos_hint: {'x':0.45,'top':0.45}
+            pos_hint: {'x':0.45,'top':0.35}
             on_press:
+                root.but_animate(self)
+            on_release: 
                 root.order()
+        Label:
+            id: OrderMainName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
 <CanteenManagerFC>:
     name: "canteenmanagerfc"
     canvas.before:
@@ -1089,6 +1097,12 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Label:
+            id: OrderFCName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
 
 <CanteenManagerKiosk>:
     name: "canteenmanagerkiosk"
@@ -1112,6 +1126,12 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Label:
+            id: OrderKioskName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
 
 <CanteenManagerNescafe>:
     name: "canteenmanagernescafe"
@@ -1135,6 +1155,12 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Label:
+            id: OrderNescafeName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
  
 <CanteenManagerPoona>:
     name: "canteenmanagerpoona"
@@ -1158,6 +1184,12 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Label:
+            id: OrderPoonaName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
 
 <CanteenManagerCoffee>:
     name: "canteenmanagercoffee"
@@ -1181,6 +1213,12 @@ Interface:
             pos_hint: {'x':0.45,'top':0.45}
             on_press:
                 root.order()
+        Label:
+            id: OrderCoffeeName
+            color: 0,0,0,1
+            font_size: 50
+            size_hint: 0.6,0.3
+            pos_hint: {'x':0.2, 'top':0.7}
       
             
             
